@@ -1,0 +1,27 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gruppo" />
+<%- include("header", {title: title}); %>
+
+<h2>Quiz mode</h2>
+
+<body>
+<form id="quizform">
+    <% for (const row of res) { %>
+        <div class="flip-card">
+            <div class="flip-card-front">
+                <p>Question</p>
+                <h3><%= row.question %></h3>
+            </div>
+        </div>
+        <input id="decknumber" type="hidden" name="decknumber" readonly value="<%= res.decknumber %>">
+        <input id="questionid" type="hidden" name="questionid" readonly value="<%= res.questionid %>">
+        <input id="question" type="hidden" name="question" readonly value="<%= res.question %>">
+        <input id="answer" type="hidden" name="answer" readonly value="<%= res.answer %>">
+        <label for="user_answer"> Answer: </label>
+        <input id="user_answer" placeholder="Enter answer" type="text" name="user_answer">
+    <% }; %>
+</form>
+
+</body>
+
+<%- include("footer"); %>

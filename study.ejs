@@ -1,0 +1,25 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gruppo" />
+<%- include("header", {title: title}); %>
+
+<h2>Study mode</h2>
+
+<body>
+<div class="container">
+<% for (const row of res) { %>
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <p>Question</p>
+        <h3><%= row.question %></h3>
+      </div>
+      <div class="flip-card-back">
+        <p>Answer</p>
+        <h3><%= row.answer%></h3>
+      </div>
+    </div>
+</div>
+<% }; %>
+</div>
+</body>
+<%- include("footer"); %>

@@ -1,0 +1,31 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gruppo" />
+<%- include("header", {title: title}); %>
+
+<h2>Flashcard decks</h2>
+<form method="post">
+    <label for="chosenDifficulty"> Difficulty </label>
+    <select onchange="" name="chosenDifficulty" id="chosenDifficulty" type="text">
+        <option value="">All</option>
+        <option value="N/A">N/A</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+    </select>
+</form>
+
+<table>
+
+<% for (const row of res) { %>
+    <tr>
+        <td>
+            <a href="/studybuddy/deck/<%= row.deckid %>"><%= row.deckname %> (<%= row.difficultyname %>)</a>
+            <a class="a1" href="/studybuddy/study/<%= row.deckid %>">Study</a>
+            <a class="a1" href="/studybuddy/quiz/<%= row.deckid %>">Quiz</a>
+        </td>
+    </tr>
+<% }; %>
+</table>
+
+<%- include("footer"); %>

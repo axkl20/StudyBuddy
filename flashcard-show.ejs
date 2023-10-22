@@ -1,0 +1,28 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gruppo" />
+<%- include("header", {title: title}); %>
+
+<h2>Edit or delete flashcards</h2>
+
+<% res1 = res[0] %>
+<a class="a1" href="/studybuddy/deck/<%= res1.decknumber %>">Back</a>
+
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Answer</th>
+        <th></th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.question %></td>
+        <td><%= row.answer %></td>
+        <td>
+            <a class="a1" href="/studybuddy/flashcard-update/<%= row.questionid %>">Edit</a>
+            <a class="remove" href="/studybuddy/flashcard-delete/<%= row.questionid %>">Delete <i class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+<% }; %>
+</table>
+
+<%- include("footer"); %>

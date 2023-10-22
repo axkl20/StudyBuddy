@@ -1,0 +1,28 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gruppo" />
+<%- include("header", {title: title}); %>
+
+<h2>Create flashcard</h2>
+
+<% res1 = res[0] %>
+
+<a class="a1" href="/studybuddy/deck/<%= res1.deckid %>">Back</a>
+
+<% res = res[0] %>
+<form class="label-left" method="post" action="/studybuddy/flashcard-create">
+    <fieldset>
+        <legend>Add flashcard:</legend>
+
+        <input id="deckid" type="hidden" name="deckid" readonly value="<%= res.deckid %>">
+
+        <label for="question">Question</label>
+        <input id="question" type="text" name="question" value="<%= res.question %>">
+
+        <label for="answer">Answer</label>
+        <input id="answer" type="text" name="answer" value="<%= res.answer %>">
+
+        <button class="button1" onclick="this.form.submit()">Add</button>
+    </fieldset>
+</form>
+
+<%- include("footer"); %>

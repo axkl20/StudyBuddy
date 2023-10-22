@@ -1,0 +1,24 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gruppo" />
+<%- include("header", {title: title}); %>
+
+<h2>Details for card deck</h2>
+
+<table>
+<% for (const row of res) { %>
+    <tr>
+        <td><a href="/studybuddy/deck/<%= row.deckid %>"><%= row.deckname %></a></td>
+        <td><%= row.category %></td>
+        <td><%= row.difficultyname %></td>
+        <td><%= row.total %> question(s)</td>
+        <td>
+            <a class="add" href="/studybuddy/flashcard-create/<%= row.deckid %>">Add</a>
+            <a class="a1" href="/studybuddy/flashcard-show/<%= row.deckid %>">Edit</a>
+            <a class="a1" href="/studybuddy/study/<%= row.deckid %>">Study</a>
+            <a class="a1" href="/studybuddy/quiz/<%= row.deckid %>">Quiz</a>
+        </td>
+    </tr>
+<% }; %>
+</table>
+
+<%- include("footer"); %>

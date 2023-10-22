@@ -1,0 +1,28 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gruppo" />
+<%- include("header", {title: title}); %>
+
+<h2>Delete</h2>
+
+<% res = res[0] %>
+<form class="label-left" method="post" action="/studybuddy/flashcard-delete">
+    <fieldset>
+        <legend>Delete flashcard?</legend>
+
+        <input id="decknumber" type="hidden" name="decknumber" readonly value="<%= res.decknumber %>">
+
+        <input id="questionid" type="hidden" name="questionid" readonly value="<%= res.questionid %>">
+
+        <label for="question">Question</label>
+        <input id="question" type="text" name="question" readonly value="<%= res.question %>">
+
+        <label for="answer">Answer</label>
+        <input id="answer" type="text" name="answer" readonly value="<%= res.answer %>">
+
+        <button class="button1" onclick="this.form.submit()">Confirm</button>
+    </fieldset>
+</form>
+
+<a class="a1" href="/studybuddy/flashcard-show/<%= res.decknumber %>">Back</a>
+
+<%- include("footer"); %>
